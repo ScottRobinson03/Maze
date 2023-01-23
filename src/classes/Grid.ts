@@ -1,3 +1,4 @@
+import { getRandomItem } from "../helpers";
 import MazeNode from "./MazeNode";
 
 export default class Grid {
@@ -19,6 +20,12 @@ export default class Grid {
             string += "\n";
         }
         return string;
+    }
+
+    generateMaze() {
+        const startRow = getRandomItem(this.tiles);
+        const startNode = getRandomItem(startRow);
+        this.randomisedDFS(startNode);
     }
 
     generateTiles(width: number, height: number) {
@@ -56,5 +63,16 @@ export default class Grid {
             tiles.push(row);
         }
         return tiles;
+    }
+
+    randomisedDFS(node: MazeNode) {
+        node.visited = true;
+
+        let nextNode = node.getRandomUnvisitedNeighbour();
+        while (nextNode !== undefined) {
+            node.connect(nextNode);
+            this.randomisedDFS(nextNode);
+            nextNode = node.getRandomUnvisitedNeighbour();
+        }
     }
 }
