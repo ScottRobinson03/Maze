@@ -105,3 +105,6 @@ dist
 
 # DS Store
 .DS_Store
+
+# Generated maze image
+maze.png
