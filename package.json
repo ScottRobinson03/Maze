@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/ScottRobinsonSky/Maze#readme",
   "dependencies": {
-    "@types/node": "^18.11.18"
+    "@types/node": "^18.11.18",
+    "pureimage": "^0.3.15"
   }
 }

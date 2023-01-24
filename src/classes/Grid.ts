@@ -30,13 +30,13 @@ export default class Grid {
 
     generateTiles(width: number, height: number) {
         const tiles: MazeNode[][] = [];
-        for (let y = 0; y < width; y++) {
+        for (let y = 0; y < height; y++) {
             const paddedY = y.toString().padStart(width.toString().length, "0");
 
             const row: MazeNode[] = [];
             const isFirstRow = y === 0;
 
-            for (let x = 0; x < height; x++) {
+            for (let x = 0; x < width; x++) {
                 const paddedX = x.toString().padStart(height.toString().length, "0");
 
                 const isFirstCol = x === 0;
