@@ -65,14 +65,21 @@ export default class Grid {
         return tiles;
     }
 
-    randomisedDFS(node: MazeNode) {
-        node.visited = true;
+    randomisedDFS(startNode: MazeNode) {
+        const stack = [startNode];
 
-        let nextNode = node.getRandomUnvisitedNeighbour();
-        while (nextNode !== undefined) {
+        while (true) {
+            const node = stack.at(-1);
+            if (node === undefined) break;
+
+            node.visited = true;
+            const nextNode = node.getRandomUnvisitedNeighbour();
+            if (nextNode === undefined) {
+                stack.pop();
+                continue;
+            }
             node.connect(nextNode);
-            this.randomisedDFS(nextNode);
-            nextNode = node.getRandomUnvisitedNeighbour();
+            stack.push(nextNode);
         }
     }
 }
