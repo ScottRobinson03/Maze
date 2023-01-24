@@ -7,8 +7,8 @@ export function getRandomItem<T>(arr: Array<T>): T {
 }
 
 export function saveMaze(mazeTiles: MazeNode[][], squareSize: number, filename: string) {
-    const imgWidth = mazeTiles[0].length * squareSize;
-    const imgHeight = mazeTiles.length * squareSize;
+    const imgWidth = mazeTiles[0].length * squareSize + 1;
+    const imgHeight = mazeTiles.length * squareSize + 1;
     console.log(imgWidth, imgHeight);
 
     const mazeImage = PImage.make(imgWidth, imgHeight, {});
